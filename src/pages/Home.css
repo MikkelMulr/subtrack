@@ -1,0 +1,225 @@
+:root {
+	font-size: 10px;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+.Home {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.Home-main {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 45vh;
+	width: 100vw;
+	background-color: #324755;
+	color: #fff;
+	border-bottom-right-radius: 6rem;
+	padding: 0 20vw;
+	z-index: 200;
+	overflow: hidden;
+}
+
+.Home-main h2 {
+	font-size: 3.2rem;
+	padding: 2rem 0;
+	font-family: 'Roboto', sans-serif;
+}
+
+.Main-container {
+	width: 102rem;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.Home-cards {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-self: center;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.Home-card {
+	width: 30%;
+	padding: 2rem 0;
+	height: auto;
+	font-size: 2rem;
+}
+
+.divider {
+	background-color: #3bd277;
+	height: 0.25rem;
+	width: 100%;
+}
+
+.Home-mid-nav {
+	height: 266px;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: flex-end;
+	color: #ddd;
+	background-color: #d97d54;
+	font-family: 'Roboto', sans-serif;
+	font-size: 1.35rem;
+	border-bottom-right-radius: 6rem;
+	z-index: 10;
+	position: absolute;
+	top: 32vh;
+	left: 0;
+}
+
+.Mid-nav-items {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	padding: 1.75rem 0;
+}
+
+.Home-info {
+	padding: 1rem 0;
+	width: 100%;
+	height: 350px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	background-color: #87bcbf;
+	color: #fff;
+	border-bottom-right-radius: 6rem;
+	z-index: 9;
+	position: absolute;
+	top: 48vh;
+	left: 0;
+}
+
+.Home-info-text {
+	margin-top: 10%;
+	width: 100%;
+	height: 100%;
+	padding: 1rem 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.Home-info-text p {
+	align-self: flex-start;
+	padding: 1rem 0;
+	width: 40%;
+	font-size: 1.75rem;
+}
+
+.demo-img {
+	width: 255px;
+	height: 345px;
+	background-image: url('../images/monthly-demo.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	z-index: 9000;
+	position: absolute;
+	bottom: -110px;
+	right: 20%;
+}
+
+/* ********************************************************************
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+******************************************************************** */
+
+@media (min-width: 320px) and (max-width: 480px) {
+	/* Menu Section */
+	.Main-container {
+		width: 100vw;
+		padding: 0 1rem;
+	}
+
+	.Home-main h2 {
+		padding: 3rem 0;
+		font-size: 2rem;
+		text-align: center;
+	}
+
+	.Home-cards {
+		width: 100%;
+	}
+
+	.Home-card {
+		width: 30%;
+		padding: 1rem 0;
+		height: auto;
+		font-size: 1rem;
+		margin: 0.3rem 0;
+	}
+
+	.Home-mid-nav {
+		height: 34%;
+		width: 100%;
+		justify-content: space-around;
+		font-size: 1rem;
+	}
+
+	.Mid-nav-items {
+		font-size: 0.75rem;
+		padding: 2rem 0;
+	}
+
+	.Mid-nav-items h2 {
+		width: 30%;
+	}
+
+	.Home-info {
+		padding: 1rem 0;
+		width: 100%;
+		height: 310px;
+		flex-direction: column;
+
+		z-index: 9;
+		position: absolute;
+		top: 48vh;
+		left: 0;
+	}
+
+	.Home-info-text {
+		margin-top: 32%;
+		width: 100%;
+		height: 100%;
+		padding: 1rem 0;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: flex-end;
+	}
+
+	.Home-info-text p {
+		width: 100%;
+		height: 100%;
+		padding-right: 200px;
+		font-size: 1.1rem;
+	}
+
+	.demo-img {
+		width: 173px;
+		height: 232px;
+		bottom: -60px;
+		right: 20px;
+	}
+}
