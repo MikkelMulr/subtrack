@@ -12,7 +12,7 @@ import './Dashboard.css';
 const Dashboard = () => {
 	const [currentView, setCurrentView] = useState('subs');
 	const showViewStyle = {
-		height: window.height - 76 - 86
+		height: window.innerHeight,
 	}
 
 
@@ -47,7 +47,7 @@ const Dashboard = () => {
 							setCurrentView('monthly');
 						}}
 					>
-						<i class='fas fa-chart-bar nav-icon' />Monthly Report
+						<i className='fas fa-chart-bar nav-icon' />Monthly Report
 					</div>
 					<div
 						className='Dash-menu-link nav-bg-norm'
@@ -55,7 +55,7 @@ const Dashboard = () => {
 							setCurrentView('services');
 						}}
 					>
-						<i class='fab fa-buffer nav-icon' />Services
+						<i className='fab fa-buffer nav-icon' />Services
 					</div>
 					<div
 						className='Dash-menu-link nav-bg-norm'
@@ -63,7 +63,7 @@ const Dashboard = () => {
 							setCurrentView('updates');
 						}}
 					>
-						<i class='far fa-newspaper nav-icon' />Updates
+						<i className='far fa-newspaper nav-icon' />Updates
 					</div>
 				</div>
 				<div className='show-container' style={showViewStyle}>{showView()}</div>
