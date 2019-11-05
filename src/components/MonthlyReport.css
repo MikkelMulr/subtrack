@@ -1,0 +1,17 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+.MonthlyReport {
+	background: #eee;
+	padding: 2rem;
+	height: 100%;
+	width: 100%;
+}
+
+.Monthly-chart {
+	height: 70%;
+	width: 70%;
+}

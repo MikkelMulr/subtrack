@@ -1,0 +1,45 @@
+.Dashboard {
+	height: 100vh;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.Dashboard .Main-container {
+	width: 100vw;
+	flex-direction: row;
+}
+
+.Dash-menu {
+	display: flex;
+	flex-direction: column;
+	padding-top: 2rem;
+	width: 35rem;
+	height: 100%;
+	background-color: #324755;
+	border-right: 12px solid #d97d54;
+}
+
+.Dash-menu-link {
+	width: 100%;
+	color: #fff;
+	font-size: 2rem;
+	padding: 0.75rem;
+
+	background: linear-gradient(to right, #324755 50%, #d97d54 50%);
+	background-size: 200% 100%;
+	background-position: left bottom;
+	transition: all 1s ease;
+}
+
+.nav-icon {
+	padding-right: 1rem;
+}
+
+.Dash-menu-link:hover {
+	background-position: right bottom;
+	padding-left: 2rem;
+	cursor: pointer;
+}
