@@ -8,8 +8,14 @@
 }
 
 .Dashboard .Main-container {
-	width: 100vw;
+	width: 100%;
+	height: 100%;
 	flex-direction: row;
+}
+
+.show-container {
+	width: 100%;
+	height: 100%;
 }
 
 .Dash-menu {
@@ -26,7 +32,7 @@
 	width: 100%;
 	color: #fff;
 	font-size: 2rem;
-	padding: 0.75rem;
+	padding: 1rem;
 
 	background: linear-gradient(to right, #324755 50%, #d97d54 50%);
 	background-size: 200% 100%;

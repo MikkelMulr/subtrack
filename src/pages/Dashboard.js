@@ -64,7 +64,7 @@ const Dashboard = () => {
 						<i class='far fa-newspaper nav-icon' />Updates
 					</div>
 				</div>
-				{showView()}
+				<div className='show-container'>{showView()}</div>
 			</div>
 			<Footer />
 		</div>
