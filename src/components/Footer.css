@@ -2,6 +2,7 @@
 	width: 100vw;
 	height: 86px;
 	background-color: #324755;
+	/* position: relative; */
 	position: fixed;
 	bottom: 0;
 	padding: 0 20vw;

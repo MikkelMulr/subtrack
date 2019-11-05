@@ -7,10 +7,16 @@ import Services from '../components/Services';
 import Updates from '../components/Updates';
 import './Dashboard.css';
 
-const Dashboard = () => {
-	const [ currentView, setCurrentView ] = useState('subs');
 
-	const showView = () => {
+
+const Dashboard = () => {
+	const [currentView, setCurrentView] = useState('subs');
+	const showViewStyle = {
+		height: window.height - 76 - 86
+	}
+
+
+	const showView = (e) => {
 		if (currentView === 'subs') {
 			return <Subscriptions />;
 		} else if (currentView === 'monthly') {
@@ -28,8 +34,7 @@ const Dashboard = () => {
 			<div className='Main-container'>
 				<div className='Dash-menu'>
 					<div
-						href='!#'
-						className='Dash-menu-link'
+						className='Dash-menu-link nav-bg-norm'
 						onClick={() => {
 							setCurrentView('subs');
 						}}
@@ -37,8 +42,7 @@ const Dashboard = () => {
 						<i className='fas fa-list-alt nav-icon' />My Subscriptions
 					</div>
 					<div
-						href='!#'
-						className='Dash-menu-link'
+						className='Dash-menu-link nav-bg-norm'
 						onClick={() => {
 							setCurrentView('monthly');
 						}}
@@ -46,8 +50,7 @@ const Dashboard = () => {
 						<i class='fas fa-chart-bar nav-icon' />Monthly Report
 					</div>
 					<div
-						href='!#'
-						className='Dash-menu-link'
+						className='Dash-menu-link nav-bg-norm'
 						onClick={() => {
 							setCurrentView('services');
 						}}
@@ -55,8 +58,7 @@ const Dashboard = () => {
 						<i class='fab fa-buffer nav-icon' />Services
 					</div>
 					<div
-						href='!#'
-						className='Dash-menu-link'
+						className='Dash-menu-link nav-bg-norm'
 						onClick={() => {
 							setCurrentView('updates');
 						}}
@@ -64,7 +66,7 @@ const Dashboard = () => {
 						<i class='far fa-newspaper nav-icon' />Updates
 					</div>
 				</div>
-				<div className='show-container'>{showView()}</div>
+				<div className='show-container' style={showViewStyle}>{showView()}</div>
 			</div>
 			<Footer />
 		</div>

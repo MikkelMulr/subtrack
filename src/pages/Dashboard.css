@@ -34,10 +34,17 @@
 	font-size: 2rem;
 	padding: 1rem;
 
+	transition: all 1s ease;
+}
+
+.nav-bg-norm {
 	background: linear-gradient(to right, #324755 50%, #d97d54 50%);
 	background-size: 200% 100%;
 	background-position: left bottom;
-	transition: all 1s ease;
+}
+
+.nav-bg-selected {
+	background: linear-gradient(to right, #d97d54 50%, #d97d54 50%);
 }
 
 .nav-icon {

@@ -153,6 +153,7 @@
 ******************************************************************** */
 
 @media (min-width: 320px) and (max-width: 480px) {
+
 	/* Menu Section */
 	.Main-container {
 		width: 100vw;
@@ -229,3 +230,38 @@
 		right: 20px;
 	}
 }
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+	.Main-container {
+		width: 90rem;
+		height: 100%;
+		overflow-x: hidden;
+	}
+
+	.demo-img {
+		width: 217px;
+		height: 293px;
+		bottom: -110px;
+		right: 20%;
+	}
+
+	.Home-info-text p {
+		width: 60%;
+		padding-right: 200px;
+		font-size: 1.1rem;
+	}
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {}

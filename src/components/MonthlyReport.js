@@ -3,7 +3,7 @@ import './MonthlyReport.css';
 import { Bar } from 'react-chartjs-2';
 
 const MonthlyReport = () => {
-	const data = [ 0.2, 0.1, 0.66, 0.24, 1 ];
+	const data = [0.2, 0.1, 0.66, 0.24, 1];
 	return (
 		<div className='MonthlyReport'>
 			<div className='Monthly-chart'>
