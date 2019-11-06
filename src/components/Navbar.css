@@ -6,7 +6,7 @@
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
-	padding: 0 32rem;
+	padding: 0 35rem;
 	color: #fff;
 }
 
@@ -49,21 +49,22 @@
 	}
 }
 
-
-
 /* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {}
+@media only screen and (max-width: 600px) {
+}
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {}
+@media only screen and (min-width: 600px) {
+}
 
 /* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {}
+@media only screen and (min-width: 768px) {
+}
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
 	.Navbar {
-		padding: 0 24rem;
+		padding: 0 30rem;
 		color: #fff;
 	}
 
@@ -76,5 +77,4 @@
 
 		font-size: 1.75rem;
 	}
-
 }
