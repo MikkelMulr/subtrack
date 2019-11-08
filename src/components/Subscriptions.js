@@ -3,10 +3,10 @@ import ServiceItem from './ServiceItem';
 import './Subscriptions.css';
 
 const Subscriptions = ({ dbData }) => {
-	const [ subList, setSubList ] = useState([
+	const [subList, setSubList] = useState([
 		<img style={{ width: '260px', margin: '0 auto' }} src={require('../images/spinner.gif')} alt='spinner' />
 	]);
-	const [ userInfo, setUserInfo ] = useState({});
+	const [userInfo, setUserInfo] = useState({});
 
 	const getUserData = () => {
 		try {
@@ -23,7 +23,7 @@ const Subscriptions = ({ dbData }) => {
 			setUserInfo({ name: dbData.data.users[0].name });
 		} catch (error) {
 			console.log(error);
-			setSubList([ <h2>{`Services not found :(`}</h2> ]);
+			setSubList([<h2>{`Services not found :(`}</h2>]);
 		}
 	};
 

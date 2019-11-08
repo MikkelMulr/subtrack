@@ -3,7 +3,7 @@ import ServiceItem from './ServiceItem';
 import './Services.css';
 
 const Services = ({ services }) => {
-	const [ serviceList, setServiceList ] = useState([
+	const [serviceList, setServiceList] = useState([
 		<img style={{ width: '260px', margin: '0 auto' }} src={require('../images/spinner.gif')} alt='spinner' />
 	]);
 
@@ -15,14 +15,14 @@ const Services = ({ services }) => {
 			setServiceList(updateServiceList);
 		} catch (error) {
 			console.log(error);
-			setServiceList([ <h2>{`Services not available :(`}</h2> ]);
+			setServiceList([<h2>{`Services not available :(`}</h2>]);
 		}
 	};
 
 	useEffect(() => {
 		setTimeout(() => {
 			getData();
-		}, 1000);
+		}, 1200);
 	}, []);
 
 	return (
