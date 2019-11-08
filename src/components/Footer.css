@@ -1,17 +1,18 @@
 .Footer {
+	grid-area: foot;
 	width: 100vw;
 	height: 86px;
 	background-color: #324755;
 	/* position: relative; */
-	position: fixed;
-	bottom: 0;
-	padding: 0 20vw;
+	/* position: fixed;
+	bottom: 0; */
+	padding: 0 15rem;
 	display: flex;
 	flex-direction: row;
-	justify-content: flex-start;
+	justify-content: flex-end;
 	align-items: center;
 	color: #aaa;
-	z-index: 300;
+	/* z-index: 300; */
 }
 
 /* ********************************************************************
@@ -23,8 +24,8 @@
 	.Footer {
 		width: 100vw;
 		height: 46px;
-		position: fixed;
+		/* position: fixed;
 		bottom: 0;
-		z-index: 300;
+		z-index: 300; */
 	}
 }

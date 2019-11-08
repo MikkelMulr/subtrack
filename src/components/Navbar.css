@@ -6,8 +6,9 @@
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
-	padding: 0 35rem;
+	padding: 0 20rem;
 	color: #fff;
+	grid-area: nav;
 }
 
 .Nav-logo {
@@ -50,31 +51,32 @@
 }
 
 /* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
-}
+@media only screen and (max-width: 600px) {}
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
-}
+@media only screen and (min-width: 600px) {}
 
 /* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
-}
+@media only screen and (min-width: 768px) {}
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
 	.Navbar {
-		padding: 0 30rem;
+		padding: 0 18rem;
 		color: #fff;
+		justify-content: flex-end;
+
+
 	}
 
 	.Nav-logo {
 		font-size: 2.25rem;
+		width: 20%;
+		text-align: left;
 	}
 
 	.Nav-links {
 		width: 30%;
-
 		font-size: 1.75rem;
 	}
 }
