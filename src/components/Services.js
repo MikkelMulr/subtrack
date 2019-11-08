@@ -2,22 +2,20 @@ import React, { useState, useEffect } from 'react';
 import ServiceItem from './ServiceItem';
 import './Services.css';
 
-const Services = () => {
-	const [serviceList, setServiceList] = useState([<img style={{ width: '260px', margin: '0 auto' }} src={require('../images/spinner.gif')} alt="spinner" />]);
+const Services = ({ services }) => {
+	const [ serviceList, setServiceList ] = useState([
+		<img style={{ width: '260px', margin: '0 auto' }} src={require('../images/spinner.gif')} alt='spinner' />
+	]);
 
-
-	const getData = async () => {
-		let response = await fetch('./testData.json');
-		let data = await response.json();
-
+	const getData = () => {
 		try {
-			let updateServiceList = await data.data.services.map((serv) => {
+			let updateServiceList = services.data.services.map((serv) => {
 				return <ServiceItem servName={serv.name} servPrice={serv.price} key={serv.id} />;
 			});
 			setServiceList(updateServiceList);
 		} catch (error) {
 			console.log(error);
-			setServiceList([<h2>{`Services not available :(`}</h2>]);
+			setServiceList([ <h2>{`Services not available :(`}</h2> ]);
 		}
 	};
 
@@ -25,7 +23,7 @@ const Services = () => {
 		setTimeout(() => {
 			getData();
 		}, 1000);
-	})
+	}, []);
 
 	return (
 		<div className='Services'>

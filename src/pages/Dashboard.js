@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -6,52 +6,55 @@ import Subscriptions from '../components/Subscriptions';
 import MonthlyReport from '../components/MonthlyReport';
 import Services from '../components/Services';
 import Updates from '../components/Updates';
+import Axios from 'axios';
 import './Dashboard.css';
 
 const Dashboard = () => {
-	const [currentView, setCurrentView] = useState('subs');
+	const [ currentView, setCurrentView ] = useState('subs');
+	const [ serviceData, setServiceData ] = useState([
+		<img style={{ width: '260px', margin: '0 auto' }} src={require('../images/spinner.gif')} alt='spinner' />
+	]);
+
 	const userLoggedIn = true;
-	// const [serviceList, setServiceList] = useState([<img style={{ width: '260px', margin: '0 auto' }} src={require('../images/spinner.gif')} alt="spinner" />]);
-	// const [userInfo, setUserInfo] = useState({})
+
+	useEffect(() => {
+		const fetchData = async () => {
+			const result = await Axios('./testData.json');
+			setServiceData(result.data);
+		};
+		fetchData();
+	}, []);
 
 	// Get user data from DB to pass to children
 	// const getUserData = async () => {
 	// 	let response = await fetch('./testData.json');
 	// 	let data = await response.json();
-	// 	let userSubIDs = data.data.users[0].subs;
-	// 	let subs = data.data.services.filter((sub, i) => {
-	// 		if (sub.id === userSubIDs[i]) {
-	// 			return sub;
+	// 	if (data) {
+	// 		try {
+	// 			return data;
+	// 		} catch(error) {
+	// 			return error;
 	// 		}
-	// 	});
-
-	// 	try {
-	// 		let userData = await subs.map((sub) => {
-	// 			return <ServiceItem servName={sub.name} servPrice={sub.price} key={sub.id} />;
-	// 		});
-	// 		setSubList(userData);
-	// 		setUserInfo({ name: data.data.users[0].name })
-	// 	} catch (error) {
-	// 		console.log(error);
-	// 		setSubList([<h2>{`Services not found :(`}</h2>]);
 	// 	}
 	// };
 
+	// const setUserData = () => {
+	// 	let dataToSet = getUserData();
+	// }
 
 	const showView = (e) => {
 		if (currentView === 'subs') {
-			return <Subscriptions />;
+			return <Subscriptions dbData={serviceData} />;
 		} else if (currentView === 'monthly') {
 			return <MonthlyReport />;
 		} else if (currentView === 'services') {
-			return <Services />;
+			return <Services services={serviceData} />;
 		} else if (currentView === 'updates') {
 			return <Updates />;
 		}
 	};
 
 	if (userLoggedIn) {
-
 		return (
 			<div className='Dashboard'>
 				<Navbar />
@@ -64,7 +67,7 @@ const Dashboard = () => {
 							}}
 						>
 							<i className='fas fa-list-alt nav-icon' />My Subscriptions
-					</div>
+						</div>
 						<div
 							className='Dash-menu-link nav-bg-norm'
 							onClick={() => {
@@ -72,7 +75,7 @@ const Dashboard = () => {
 							}}
 						>
 							<i className='fas fa-chart-bar nav-icon' />Monthly Report
-					</div>
+						</div>
 						<div
 							className='Dash-menu-link nav-bg-norm'
 							onClick={() => {
@@ -80,7 +83,7 @@ const Dashboard = () => {
 							}}
 						>
 							<i className='fab fa-buffer nav-icon' />Services
-					</div>
+						</div>
 						<div
 							className='Dash-menu-link nav-bg-norm'
 							onClick={() => {
@@ -88,19 +91,16 @@ const Dashboard = () => {
 							}}
 						>
 							<i className='far fa-newspaper nav-icon' />Updates
+						</div>
 					</div>
-					</div>
-					<div className='show-container' >
-						{showView()}
-					</div>
+					<div className='show-container'>{showView()}</div>
 				</div>
 				<Footer />
 			</div>
 		);
 	} else {
-		return <Redirect from='/Dashboard' to='/Login' />
+		return <Redirect from='/Dashboard' to='/Login' />;
 	}
-
 };
 
 export default Dashboard;
