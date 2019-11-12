@@ -4,7 +4,9 @@ import './Navbar.css';
 
 const Navbar = () => (
 	<nav className='Navbar'>
-		<div className='Nav-logo'>SUBTRACK</div>
+		<div className='Nav-logo'>
+			<Link to='/'>SUBTRACK</Link>
+		</div>
 		<div className='Nav-links'>
 			<Link to='/'>Home</Link>
 			<Link to='/dashboard'>Dashboard</Link>
