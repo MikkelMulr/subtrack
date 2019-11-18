@@ -1,19 +1,77 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import './Login.css';
 
-/*
-	Use Mongoose to access the mongo DB
-	Check DB if user email/ password exist
+const Login = () => {
+	const [ view, setView ] = useState('login');
 
-	Use bcrypt to encrypt password upon registeration
-*/
+	const handleSetView = () => {
+		if (view === 'login') {
+			setView('register');
+		} else {
+			setView('login');
+		}
+	};
 
-const Login = () => (
-	<div className='Login'>
-		<Navbar />
-		<Footer />
-	</div>
-);
+	if (view === 'login') {
+		return (
+			<div className='Login'>
+				<Navbar />
+				<div className='Login-container'>
+					<div className='Main-container'>
+						<div className='Login-form'>
+							<h2>Log in</h2>
+							<form method='get'>
+								<input type='email' name='user_email' id='user_email' placeholder='email' required />
+								<input type='password' name='user_password' id='user_password' placeholder='password' required />
+								<button type='submit' className='Login-btn'>
+									Login
+								</button>
+								<p>
+									Not a member? <span onClick={handleSetView}>Register now</span>
+								</p>
+							</form>
+						</div>
+					</div>
+				</div>
+				<Footer />
+			</div>
+		);
+	} else if (view === 'register') {
+		return (
+			<div className='Login'>
+				<Navbar />
+				<div className='Login-container'>
+					<div className='Main-container'>
+						<div className='Login-form'>
+							<h2>Register</h2>
+							<form method='get'>
+								<input type='text' name='user_firstName' id='user_firstName' placeholder='first name*' required />
+								<input type='text' name='user_lastName' id='user_lastName' placeholder='last name*' required />
+								<input type='email' name='user_email' id='user_email' placeholder='email*' required />
+								<input type='password' name='user_password' id='user_password' placeholder='password*' required />
+								<input
+									type='password'
+									name='user_password_conf'
+									id='user_password_conf'
+									placeholder='confirm password*'
+									required
+								/>
+								<button type='submit' className='Login-btn'>
+									Login
+								</button>
+								<p>
+									Already a member? <span onClick={handleSetView}>Log in</span>
+								</p>
+							</form>
+						</div>
+					</div>
+				</div>
+				<Footer />
+			</div>
+		);
+	}
+};
 
 export default Login;
