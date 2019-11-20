@@ -4,7 +4,30 @@ import Footer from '../components/Footer';
 import './Login.css';
 
 const Login = () => {
-	const [ view, setView ] = useState('login');
+	const [view, setView] = useState('login');
+
+	// Cloud based mongo atlas connection (option)
+	// // getting-started.js
+	// let mongoose = require('mongoose');
+	// mongoose.connect('mongodb://localhost/test', { useNewUrlParser: true });
+
+	// let db = mongoose.connection;
+	// db.on('error', console.error.bind(console, 'connection error:'));
+	// db.once('open', function () {
+	// 	console.log('Connection established');
+	// 	// we're connected!
+	// });
+
+	// // Define user schema
+	// let userSchema = new mongoose.Schema({
+	// 	email: String
+	// });
+
+	// let user = mongoose.model('User', userSchema);
+
+	// var tony = new user({ name: 'Tony' });
+	// console.log(tony.name);
+
 
 	const handleSetView = () => {
 		if (view === 'login') {

@@ -3,9 +3,9 @@ import ServiceItem from './ServiceItem';
 import './Subscriptions.css';
 
 const Subscriptions = ({ dbData }) => {
-	const [ subList, setSubList ] = useState([]);
-	const [ userInfo, setUserInfo ] = useState({});
-	const [ Loading, setLoading ] = useState(true);
+	const [subList, setSubList] = useState([]);
+	const [userInfo, setUserInfo] = useState({});
+	const [Loading, setLoading] = useState(true);
 
 	useEffect(() => {
 		setTimeout(() => {
@@ -18,19 +18,22 @@ const Subscriptions = ({ dbData }) => {
 		() => {
 			const getData = () => {
 				try {
-					let updateServiceList = userInfo.data.services.map((serv) => {
-						return <ServiceItem servName={serv.name} servPrice={serv.price} key={serv.id} />;
-					});
-					setSubList(updateServiceList);
+					let userSubs = userInfo.data.services.map((serv) => {
+						if (userInfo.data.users[0].subs.includes(serv.id)) {
+							return <ServiceItem servName={serv.name} servPrice={serv.price} key={serv.id} />;
+						}
+					})
+					console.log(userSubs);
+					setSubList(userSubs);
 					setLoading(false);
 				} catch (error) {
 					console.log(error);
-					setSubList([ <h2>{`Services not available :(`}</h2> ]);
+					// setSubList([<h2>{`Loading...`}</h2>]);
 				}
 			};
 			getData();
 		},
-		[ userInfo ]
+		[userInfo]
 	);
 
 	return (
@@ -41,8 +44,8 @@ const Subscriptions = ({ dbData }) => {
 			{Loading ? (
 				<div className='Services-list'>{subList}</div>
 			) : (
-				<img style={{ width: '260px', margin: '0 auto' }} src={require('../images/spinner.gif')} alt='spinner' />
-			)}
+					<img style={{ width: '260px', margin: '0 auto' }} src={require('../images/spinner.gif')} alt='spinner' />
+				)}
 		</div>
 	);
 };
