@@ -4,7 +4,7 @@ import './Services.css';
 
 const Services = ({ services }) => {
 	const [ serviceList, setServiceList ] = useState([
-		<img style={{ width: '260px', margin: '0 auto' }} src={require('../images/spinner.gif')} alt='spinner' />
+		<img style={{ width: '260px', margin: '0 auto' }} src={require('../images/spinner.gif')} alt='spinner' key='00' />
 	]);
 
 	const getData = () => {

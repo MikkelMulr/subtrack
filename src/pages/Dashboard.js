@@ -1,4 +1,4 @@
-import React, { useState, /*useEffect*/ } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -6,12 +6,12 @@ import Subscriptions from '../components/Subscriptions';
 import MonthlyReport from '../components/MonthlyReport';
 import Services from '../components/Services';
 import Updates from '../components/Updates';
-// import Axios from 'axios';
+import Axios from 'axios';
 import './Dashboard.css';
 
 const Dashboard = () => {
-	const [currentView, setCurrentView] = useState('subs');
-	// const [serviceData, setServiceData] = useState([
+	const [ currentView, setCurrentView ] = useState('subs');
+	const [ serviceData, setServiceData ] = useState([]);
 	// 	<img style={{ width: '260px', margin: '0 auto' }} src={require('../images/spinner.gif')} alt='spinner' />
 	// ]);
 
@@ -25,13 +25,20 @@ const Dashboard = () => {
 	// 	fetchData();
 	// }, []);
 
+	useEffect(() => {
+		const getData = () => {
+			Axios.get('./testData.json').then((res) => setServiceData(res.data)).catch((error) => console.log(error));
+		};
+		getData();
+	}, []);
+
 	const showView = (e) => {
 		if (currentView === 'subs') {
-			return <Subscriptions /*dbData={serviceData}*/ />;
+			return <Subscriptions dbData={serviceData} />;
 		} else if (currentView === 'monthly') {
 			return <MonthlyReport />;
 		} else if (currentView === 'services') {
-			return <Services /*services={serviceData}*/ />;
+			return <Services services={serviceData} />;
 		} else if (currentView === 'updates') {
 			return <Updates />;
 		}
