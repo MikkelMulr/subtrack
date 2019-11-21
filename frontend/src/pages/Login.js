@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import './Login.css';
 
 const Login = () => {
 	const [view, setView] = useState('login');
+	const [loggedIn, setLoggedIn] = useState(false);
+
+	let history = useHistory();
+
 
 	// Cloud based mongo atlas connection (option)
 	// // getting-started.js
@@ -37,6 +42,24 @@ const Login = () => {
 		}
 	};
 
+	const checkLoggin = () => {
+		console.log(loggedIn);
+		// if (loggedIn) {
+		history.push('/Dashboard');
+		// }
+	}
+
+	const handleLogin = (e) => {
+		e.preventDefault();
+		if (view === 'login') {
+			// placeholder for login cred checking from DB/ oAuth
+			setLoggedIn(true);
+			console.log('logged in');
+			checkLoggin();
+		}
+	}
+
+
 	if (view === 'login') {
 		return (
 			<div className='Login'>
@@ -48,7 +71,7 @@ const Login = () => {
 							<form method='get'>
 								<input type='email' name='user_email' id='user_email' placeholder='email' required />
 								<input type='password' name='user_password' id='user_password' placeholder='password' required />
-								<button type='submit' className='Login-btn'>
+								<button type='submit' className='Login-btn' onClick={handleLogin}>
 									Login
 								</button>
 								<p>

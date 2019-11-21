@@ -12,8 +12,6 @@ import './Dashboard.css';
 const Dashboard = () => {
 	const [currentView, setCurrentView] = useState('subs');
 	const [serviceData, setServiceData] = useState([]);
-	// 	<img style={{ width: '260px', margin: '0 auto' }} src={require('../images/spinner.gif')} alt='spinner' />
-	// ]);
 
 	const userLoggedIn = true;
 
