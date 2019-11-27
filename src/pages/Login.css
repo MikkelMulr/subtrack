@@ -1,6 +1,6 @@
 .Login {
-	min-height: 100vh;
-	height: 100vh;
+	min-height: 86vh;
+	height: 100%;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
@@ -13,7 +13,8 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	height: 45vh;
+	min-height: 86vh;
+	height: 100%;
 	width: 100vw;
 	background-color: #324755;
 	color: #fff;
@@ -27,6 +28,7 @@
 }
 
 .Login-container {
+	min-height: 86vh;
 	height: 100%;
 	width: 100%;
 	/* background-color: #ddd; */

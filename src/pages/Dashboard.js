@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 import Subscriptions from '../components/Subscriptions';
 import MonthlyReport from '../components/MonthlyReport';
 import Services from '../components/Services';
@@ -10,8 +8,8 @@ import Axios from 'axios';
 import './Dashboard.css';
 
 const Dashboard = () => {
-	const [currentView, setCurrentView] = useState('subs');
-	const [serviceData, setServiceData] = useState([]);
+	const [ currentView, setCurrentView ] = useState('subs');
+	const [ serviceData, setServiceData ] = useState([]);
 
 	const userLoggedIn = true;
 
@@ -37,7 +35,7 @@ const Dashboard = () => {
 	if (userLoggedIn) {
 		return (
 			<div className='Dashboard'>
-				<Navbar />
+				{/* <Navbar /> */}
 				<div className='Main-container'>
 					<div className='Dash-menu'>
 						<div
@@ -75,7 +73,6 @@ const Dashboard = () => {
 					</div>
 					<div className='show-container'>{showView()}</div>
 				</div>
-				<Footer />
 			</div>
 		);
 	} else {

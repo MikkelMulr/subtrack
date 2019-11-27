@@ -1,6 +1,6 @@
 .Navbar {
 	width: 100vw;
-	height: 76px;
+	height: 7vh;
 	background-color: #3bd277;
 	display: flex;
 	flex-direction: row;
@@ -8,7 +8,6 @@
 	align-items: center;
 	padding: 0 20rem;
 	color: #fff;
-	grid-area: nav;
 }
 
 .Nav-logo {

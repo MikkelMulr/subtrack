@@ -1,9 +1,10 @@
 .Dashboard {
-	height: 100vh;
+	height: 100%;
+	min-height: 86vh;
 	width: 100vw;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: center;
 }
 
@@ -11,13 +12,12 @@
 	width: 100%;
 	height: 100%;
 	flex-direction: row;
-	/* overflow-y: hidden; */
 }
 
 .show-container {
 	width: 100%;
+	min-height: 86vh;
 	height: 100%;
-	/* padding-top: 4rem; */
 	overflow-y: scroll;
 	background-color: #eee;
 }
@@ -27,6 +27,7 @@
 	flex-direction: column;
 	padding-top: 2rem;
 	width: 35rem;
+	min-height: 86vh;
 	height: 100%;
 	background-color: #324755;
 	border-right: 12px solid #d97d54;

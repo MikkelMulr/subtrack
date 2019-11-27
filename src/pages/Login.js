@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 import './Login.css';
 
-const Login = () => {
-	const [view, setView] = useState('login');
-	const [loggedIn, setLoggedIn] = useState(false);
+const Login = ({ auth }) => {
+	const [ view, setView ] = useState('login');
+	const [ loggedIn, setLoggedIn ] = useState(false);
+
+	const login = () => {
+		auth.login();
+	};
+
+	const logout = () => {
+		auth.logout();
+	};
 
 	let history = useHistory();
-
 
 	// Cloud based mongo atlas connection (option)
 	// // getting-started.js
@@ -33,7 +38,6 @@ const Login = () => {
 	// var tony = new user({ name: 'Tony' });
 	// console.log(tony.name);
 
-
 	const handleSetView = () => {
 		if (view === 'login') {
 			setView('register');
@@ -47,7 +51,7 @@ const Login = () => {
 		// if (loggedIn) {
 		history.push('/Dashboard');
 		// }
-	}
+	};
 
 	const handleLogin = (e) => {
 		e.preventDefault();
@@ -57,13 +61,11 @@ const Login = () => {
 			console.log('logged in');
 			checkLoggin();
 		}
-	}
-
+	};
 
 	if (view === 'login') {
 		return (
 			<div className='Login'>
-				<Navbar />
 				<div className='Login-container'>
 					<div className='Main-container'>
 						<div className='Login-form'>
@@ -81,13 +83,11 @@ const Login = () => {
 						</div>
 					</div>
 				</div>
-				<Footer />
 			</div>
 		);
 	} else if (view === 'register') {
 		return (
 			<div className='Login'>
-				<Navbar />
 				<div className='Login-container'>
 					<div className='Main-container'>
 						<div className='Login-form'>
@@ -114,7 +114,6 @@ const Login = () => {
 						</div>
 					</div>
 				</div>
-				<Footer />
 			</div>
 		);
 	}
