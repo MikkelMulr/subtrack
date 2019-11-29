@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { auth } from '../firebase/firebase.utils';
+
 import './Navbar.css';
 
-const Navbar = () => (
+const Navbar = ({ currentUser }) => (
 	<nav className='Navbar'>
 		<div className='Nav-logo'>
 			<Link to='/'>SUBTRACK</Link>
@@ -10,7 +12,13 @@ const Navbar = () => (
 		<div className='Nav-links'>
 			<Link to='/'>Home</Link>
 			<Link to='/dashboard'>Dashboard</Link>
-			<Link to='/login'>Log in</Link>
+			{currentUser ? (
+				<div>
+					<a onClick={() => auth.signOut()}>Log Out</a>
+				</div>
+			) : (
+				<Link to='/login'>Log in</Link>
+			)}
 		</div>
 	</nav>
 );

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { signInWithGoogle } from '../firebase/firebase.utils';
+
 import './Login.css';
 
 const Login = ({ auth }) => {
@@ -73,9 +75,14 @@ const Login = ({ auth }) => {
 							<form method='get'>
 								<input type='email' name='user_email' id='user_email' placeholder='email' required />
 								<input type='password' name='user_password' id='user_password' placeholder='password' required />
-								<button type='submit' className='Login-btn' onClick={handleLogin}>
-									Login
-								</button>
+								<div className='buttons'>
+									<button type='submit' className='Login-btn'>
+										Login
+									</button>
+									<button type='submit' className='Login-btn btn-blue' onClick={signInWithGoogle}>
+										Login with Google
+									</button>
+								</div>
 								<p>
 									Not a member? <span onClick={handleSetView}>Register now</span>
 								</p>
@@ -104,9 +111,7 @@ const Login = ({ auth }) => {
 									placeholder='confirm password*'
 									required
 								/>
-								<button type='submit' className='Login-btn'>
-									Login
-								</button>
+
 								<p>
 									Already a member? <span onClick={handleSetView}>Log in</span>
 								</p>
